@@ -1,10 +1,12 @@
-inventory=[]
+inventory=["sword","shield","-","-"]
 map=[["f1","f2","f3","f4","f5","f6","roof"]
-     ,[["enterance"],["shop"],["training"],["outlook"],["street"],["town"],["home"]]]
+     ,["enterance","shop","training","outlook","street","town","home"]]
+items=[["","","","","","",""]
+     ,["","","","","","coin","sword"]]
 playerx=6
 playery=1
 
-def move(direction):
+def move(direction, playerx, playery):
     if direction=="west":
         if playerx>0:
             playerx-=1  
@@ -12,12 +14,34 @@ def move(direction):
         if playerx<6:
             player+=1
     elif direction=="north":
-        if map[playerx][playery]=="enterance":
+        if map[playery][playerx]=="enterance":
             playery-=1
     elif direction=="south":
-        if map[playerx][playery]=="f1":
+        if map[playery][playerx]=="f1":
             playery+=1
-    print(playerx)
-    print(playery)
+    else:
+        print("Cannot move there!")
+        print(direction)
+    print("You are at "+str(map[playery][playerx])+".")
 
-move("west")
+def upgrade (inventory,size):
+    newinventory=[]
+    if size>len(inventory):
+        for i in range(size):
+            if i<len(inventory):
+                newinventory.append(inventory[i])
+            else:
+                newinventory.append("-")
+    return newinventory
+
+game=True
+
+while game:
+    text=input("> ")
+    command=text.split()
+    print (command)
+    if "move" in text:
+        move(command[1],playerx,playery)
+# move("west", playerx, playery)
+# move("east", playerx, playery)
+# print (upgrade(inventory,6))
