@@ -39,9 +39,10 @@ game=True
 while game:
     text=input("> ")
     command=text.split()
-    print (command)
     if "move" in text:
         move(command[1],playerx,playery)
+    elif "look" in text:
+        print("You look around, and find a "+items[playery][playerx]+".")
 # move("west", playerx, playery)
 # move("east", playerx, playery)
 # print (upgrade(inventory,6))
