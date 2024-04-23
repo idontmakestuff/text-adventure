@@ -69,6 +69,12 @@ while game:
         if "coin" in inventory:
             if playery==1 and playerx==1:
                 upgrade(inventory,6)
+    elif "say" in text:
+        if command[1]== "password":
+            if playerx==2 and playery==0:
+                upgrade(inventory,8)
+
+
                 
 # move("west", playerx, playery)
 # move("east", playerx, playery)
