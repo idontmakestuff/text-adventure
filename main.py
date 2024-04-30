@@ -1,4 +1,4 @@
-inventory=["-","-","-","-"]
+inventory=["coin","-","-","-"]
 map=[["f1","f2","f3","f4","f5","f6","roof"]
      ,["enterance","shop","training","outlook","street","town","home"]]
 items=[["","","","","","",""]
@@ -30,8 +30,10 @@ def move(direction):
 
 
 def upgrade (inventory,size):
+    print ("Upgrading")
     newinventory=[]
     if size>len(inventory):
+        print("upgrading 2")
         for i in range(size):
             if i<len(inventory):
                 newinventory.append(inventory[i])
@@ -68,11 +70,11 @@ while game:
     elif "buy" in text:
         if "coin" in inventory:
             if playery==1 and playerx==1:
-                upgrade(inventory,6)
+                inventory=upgrade(inventory,6)
     elif "say" in text:
         if command[1]== "password":
             if playerx==2 and playery==0:
-                upgrade(inventory,8)
+                inventory=upgrade(inventory,8)
 
 
                 
