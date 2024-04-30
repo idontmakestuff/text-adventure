@@ -30,10 +30,10 @@ def move(direction):
 
 
 def upgrade (inventory,size):
-    print ("Upgrading")
+    # print ("Upgrading")
     newinventory=[]
     if size>len(inventory):
-        print("upgrading 2")
+        # print("upgrading 2")
         for i in range(size):
             if i<len(inventory):
                 newinventory.append(inventory[i])
